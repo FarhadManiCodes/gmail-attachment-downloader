@@ -27,7 +27,7 @@ dependencies = [
     "google-auth>=2.40.0",
     "google-auth-oauthlib>=1.2.0",
     "google-auth-httplib2>=0.2.0",
-    "typer[all]>=0.16.0",
+    "typer>=0.16.0",
     "rich>=13.9.0",
     "pyyaml>=6.0.2",
     "python-dateutil>=2.9.0",
@@ -42,6 +42,7 @@ dev = [
     "black>=24.10.0",
     "ruff>=0.8.0",
     "mypy>=1.16.0",
+    "types-PyYAML>=6.0.12",
 ]
 
 [project.scripts]
