@@ -1,0 +1,44 @@
+# Gmail Attachment Downloader Configuration
+
+gmail:
+  credentials_file: "config/credentials.json"
+  token_file: "config/token.json"
+
+filters:
+  # Email senders to monitor
+  senders:
+    - "important@company.com"
+    - "reports@system.com"
+  
+  # File extensions to download
+  extensions:
+    - ".pdf"
+    - ".docx" 
+    - ".xlsx"
+    - ".csv"
+  
+  # Date filtering (optional)
+  after_date: null  # "2024-01-01"
+  before_date: null
+  
+  # File size limits
+  min_size: 1024        # 1KB minimum
+  max_size: 52428800    # 50MB maximum
+
+download:
+  # Where to save attachments
+  base_dir: "./downloads"
+  
+  # Organization strategy: sender, date, flat
+  organize_by: "sender"
+  
+  # Overwrite existing files
+  overwrite_existing: false
+
+# Watch mode settings
+watch:
+  # How often to check for new emails (seconds)
+  check_interval: 30
+  
+  # Enable real-time notifications
+  show_notifications: true

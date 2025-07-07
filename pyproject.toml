@@ -1,0 +1,78 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "gmail-attachment-downloader"
+version = "0.1.0"
+description = "Automatically download Gmail attachments with real-time monitoring"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.11"
+authors = [
+    {name = "Your Name", email = "your.email@example.com"},
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+
+dependencies = [
+    "google-api-python-client>=2.120.0",
+    "google-auth>=2.40.0",
+    "google-auth-oauthlib>=1.2.0",
+    "google-auth-httplib2>=0.2.0",
+    "typer[all]>=0.16.0",
+    "rich>=13.9.0",
+    "pyyaml>=6.0.2",
+    "python-dateutil>=2.9.0",
+    "aiofiles>=24.0.0",
+    "watchdog>=6.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "black>=24.10.0",
+    "ruff>=0.8.0",
+    "mypy>=1.16.0",
+]
+
+[project.scripts]
+gmail-downloader = "gmail_downloader.main:app"
+
+[project.urls]
+Homepage = "https://github.com/yourusername/gmail-attachment-downloader"
+Repository = "https://github.com/yourusername/gmail-attachment-downloader"
+Issues = "https://github.com/yourusername/gmail-attachment-downloader/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/gmail_downloader"]
+
+[tool.black]
+line-length = 88
+target-version = ['py313']
+
+[tool.ruff]
+target-version = "py313"
+line-length = 88
+select = ["E", "F", "I", "N", "W", "UP"]
+
+[tool.mypy]
+python_version = "3.13"
+strict = true
+warn_return_any = true
+warn_unused_configs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+asyncio_mode = "auto"
