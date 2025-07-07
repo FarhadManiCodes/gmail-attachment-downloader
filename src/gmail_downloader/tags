@@ -1,0 +1,60 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AppConfig	config.py	/^class AppConfig:$/;"	c
+AttachmentDownloader	downloader.py	/^class AttachmentDownloader:$/;"	c
+DownloadConfig	config.py	/^class DownloadConfig:$/;"	c
+EmailWatcher	downloader.py	/^class EmailWatcher:$/;"	c
+FilterConfig	config.py	/^class FilterConfig:$/;"	c
+GmailClient	gmail_client.py	/^class GmailClient:$/;"	c
+GmailConfig	config.py	/^class GmailConfig:$/;"	c
+__all__	__init__.py	/^__all__ = ["app"]$/;"	v
+__author__	__init__.py	/^__author__ = "Your Name"$/;"	v
+__init__	downloader.py	/^    def __init__(self, base_dir: str, organize_by: str = "sender"):$/;"	m	class:AttachmentDownloader
+__init__	downloader.py	/^    def __init__(self, gmail_client, downloader: AttachmentDownloader):$/;"	m	class:EmailWatcher
+__init__	gmail_client.py	/^    def __init__(self, credentials_path: str, token_path: str):$/;"	m	class:GmailClient
+__version__	__init__.py	/^__version__ = "0.1.0"$/;"	v
+app	main.py	/^app = typer.Typer($/;"	v
+authenticate	gmail_client.py	/^    async def authenticate(self) -> None:$/;"	m	class:GmailClient
+build_query	gmail_client.py	/^    def build_query(self, $/;"	m	class:GmailClient
+clean	utils.py	/^        clean = sanitize_filename(filename)$/;"	v
+console	main.py	/^console = Console()$/;"	v
+created_path	utils.py	/^        created_path = ensure_directory(test_path)$/;"	v
+download	main.py	/^def download($/;"	f
+download_attachment	downloader.py	/^    async def download_attachment(self, $/;"	m	class:AttachmentDownloader
+download_attachment	gmail_client.py	/^    async def download_attachment(self, message_id: str, attachment_id: str) -> bytes:$/;"	m	class:GmailClient
+ensure_directory	utils.py	/^def ensure_directory(path: Union[str, Path]) -> Path:$/;"	f
+extract_email_address	utils.py	/^def extract_email_address(full_email: str) -> str:$/;"	f
+extracted	utils.py	/^        extracted = extract_email_address(email)$/;"	v
+format_file_size	utils.py	/^def format_file_size(size_bytes: int) -> str:$/;"	f
+formatted	utils.py	/^        formatted = format_file_size(size)$/;"	v
+get_download_path	downloader.py	/^    def get_download_path(self, filename: str, sender: str, date: datetime) -> Path:$/;"	m	class:AttachmentDownloader
+get_message_details	gmail_client.py	/^    async def get_message_details(self, message_id: str) -> Dict[str, Any]:$/;"	m	class:GmailClient
+help	main.py	/^    help="Gmail Attachment Downloader - Real-time email attachment management",$/;"	v
+is_valid	utils.py	/^        is_valid = is_valid_email(extract_email_address(email))$/;"	v
+is_valid_attachment	downloader.py	/^    def is_valid_attachment(self, $/;"	m	class:AttachmentDownloader
+is_valid_email	utils.py	/^def is_valid_email(email: str) -> bool:$/;"	f
+load_config	config.py	/^def load_config(config_path: str = "config\/config.yaml") -> AppConfig:$/;"	f
+name	main.py	/^    name="gmail-downloader",$/;"	v
+parse_date	utils.py	/^def parse_date(date_string: str) -> Optional[datetime]:$/;"	f
+result	utils.py	/^        result = parse_date(date_str)$/;"	v
+rich_markup_mode	main.py	/^    rich_markup_mode="rich"$/;"	v
+sanitize_filename	downloader.py	/^    def sanitize_filename(self, filename: str) -> str:$/;"	m	class:AttachmentDownloader
+sanitize_filename	utils.py	/^def sanitize_filename(filename: str) -> str:$/;"	f
+save_config	config.py	/^def save_config(config: AppConfig, config_path: str = "config\/config.yaml") -> None:$/;"	f
+search_messages	gmail_client.py	/^    async def search_messages(self, query: str) -> List[str]:$/;"	m	class:GmailClient
+start_watching	downloader.py	/^    async def start_watching(self, $/;"	m	class:EmailWatcher
+status	main.py	/^def status():$/;"	f
+stop_watching	downloader.py	/^    def stop_watching(self):$/;"	m	class:EmailWatcher
+test_dates	utils.py	/^    test_dates = ["2024-01-15", "01\/15\/2024", "15\/01\/2024", "invalid-date"]$/;"	v
+test_emails	utils.py	/^    test_emails = [$/;"	v
+test_filenames	utils.py	/^    test_filenames = [$/;"	v
+test_path	utils.py	/^    test_path = "test_downloads\/attachments"$/;"	v
+test_sizes	utils.py	/^    test_sizes = [0, 512, 1024, 1536, 1048576, 52428800, 1073741824]$/;"	v
+test_strings	utils.py	/^    test_strings = [$/;"	v
+truncate_string	utils.py	/^def truncate_string(text: str, max_length: int = 50, suffix: str = "...") -> str:$/;"	f
+truncated	utils.py	/^        truncated = truncate_string(text, 25)$/;"	v
+watch	main.py	/^def watch($/;"	f
