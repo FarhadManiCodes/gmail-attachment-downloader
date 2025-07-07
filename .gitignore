@@ -30,6 +30,8 @@ ENV/
 .idea/
 *.swp
 *.swo
+tags
+*tags*
 
 # Project specific
 config/credentials.json
@@ -235,3 +237,5 @@ pyrightconfig.json
 
 .envrc
 CLAUDE.md
+tags
+*tags*
