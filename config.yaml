@@ -1,0 +1,18 @@
+# Gmail Attachment Downloader Configuration
+gmail:
+  credentials_file: "config/credentials.json"
+  token_file: "config/token.json"
+  requests_per_minute: 250
+
+filters:
+  extensions: [".py", ".ipynb", ".sql", ".csv", ".xlsx", ".json", ".parquet"]
+  min_size: 1024
+  max_size: 52428800
+
+download:
+  base_dir: "./downloads"
+  organize_by: "sender"
+  max_concurrent: 5
+
+watch:
+  check_interval: "30s"
