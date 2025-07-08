@@ -1,44 +1,82 @@
 # Gmail Attachment Downloader Configuration
+# This file controls how the application behaves
 
+# Gmail API settings
 gmail:
+  # Path to OAuth2 credentials from Google Cloud Console
   credentials_file: "config/credentials.json"
-  token_file: "config/token.json"
-
-filters:
-  # Email senders to monitor
-  senders:
-    - "important@company.com"
-    - "reports@system.com"
   
-  # File extensions to download
+  # Where to store authentication tokens
+  token_file: "config/token.json"
+  
+  # API rate limiting (respect Gmail quotas)
+  requests_per_minute: 250
+  max_retries: 3
+
+# Email filtering options
+filters:
+  # Specific senders to monitor (empty = all senders)
+  senders: []
+    # - "important@company.com"
+    # - "reports@system.com"
+  
+  # File types to download
   extensions:
     - ".pdf"
-    - ".docx" 
+    - ".docx"
     - ".xlsx"
     - ".csv"
+    - ".txt"
   
-  # Date filtering (optional)
-  after_date: null  # "2024-01-01"
-  before_date: null
+  # Date filtering (YYYY-MM-DD format)
+  after_date: null   # Download emails after this date
+  before_date: null  # Download emails before this date
   
   # File size limits
-  min_size: 1024        # 1KB minimum
-  max_size: 52428800    # 50MB maximum
+  min_size: 1024          # 1 KB minimum
+  max_size: 52428800      # 50 MB maximum
+  
+  # Subject filtering
+  subject_keywords: []           # Include emails with these words
+  subject_exclude_keywords:      # Exclude emails with these words
+    - "spam"
+    - "promotional"
 
+# Download and organization settings
 download:
   # Where to save attachments
   base_dir: "./downloads"
   
-  # Organization strategy: sender, date, flat
+  # How to organize files: sender, date, sender_date, flat
   organize_by: "sender"
   
-  # Overwrite existing files
+  # File naming: original, timestamp, uuid
+  naming_strategy: "original"
+  
+  # Whether to overwrite existing files
   overwrite_existing: false
+  
+  # Parallel downloads (be reasonable)
+  max_concurrent_downloads: 3
 
-# Watch mode settings
+# Real-time monitoring settings (for watch mode)
 watch:
   # How often to check for new emails (seconds)
   check_interval: 30
   
-  # Enable real-time notifications
+  # Show desktop notifications
   show_notifications: true
+  
+  # Maximum watch time (minutes, 0 = infinite)
+  max_runtime_minutes: 0
+
+# Logging configuration
+logging:
+  # Log level: DEBUG, INFO, WARNING, ERROR
+  level: "INFO"
+  
+  # Log file location (null = console only)
+  file_path: "logs/gmail_downloader.log"
+  
+  # Keep this many old log files
+  backup_count: 5
